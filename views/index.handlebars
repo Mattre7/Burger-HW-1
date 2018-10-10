@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <img alt="burger" class="center-block" src="https://clip2art.com/images/drawn-hamburger-3.jpg">
+    <h1 class="display-3 text-center text-dark p-4 font-weight-bold">Burgers!</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-3" id="undevoured">
+            <h5 class="font-weight-bold"><u>Undevoured:</u></h5>
+            <ul>
+            {{#each burgers}}
+              {{#unless this.devoured}}
+              <li class="">
+                  <p class="">{{this.burgername}}</p>
+                  <span class="input-group-btn">
+                      <form action="burgers/update/{{this.id}}" method="POST">
+                        <button class="btn " type="submit">EAT!</button>>
+                      </form>
+                  </span>
+              </li>
+              {{/unless}}
+              {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-3" id="devoured">
+            <h5 class="font-weight-bold"><u>Devoured:</u></h5>
+            <ul>
+            {{#each burgers}}
+              {{#if this.devoured}}
+              <li class="">
+                  <p class="">{{this.burgername}}</p>
+              </li>
+              {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+    <div>
+        <form action="burgers/create" method="POST">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <textarea class="form-control input-lg col-md-4" type="text" row="3"></textarea>
+            <div class="col-md-4"></div>
+        </div>
+        </form>
+        <p class="text-center">Enter a Burger you would like to eat, and hit the "Submit" button to add the burger!</p>
+        <button class="center-block btn btn-default btn-lg" type="submit">Add New Burger</button>
+    </div>
+</div>
