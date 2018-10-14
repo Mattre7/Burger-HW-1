@@ -1,15 +1,15 @@
 var connection = require("../config/connection.js");
 
 
-function printQuestionMarks(num) {
-    var arr = [];
+// function printQuestionMarks(num) {
+//     var arr = [];
 
-    for (var i = 0; i < num; i++) {
-        arr.push("?");
-    }
+//     for (var i = 0; i < num; i++) {
+//         arr.push("?");
+//     }
 
-    return arr.toString();
-}
+//     return arr.toString();
+// }
 
 
 var orm = {
@@ -28,13 +28,14 @@ var orm = {
         });
     },
     insertOne: function (burgerName, callback) {
-        connection.query('INSERT INTO burgers (burger_name) VALUES (?)', burgerName, function (err, data) {
+        connection.query('INSERT INTO burgers (burgername) VALUES (?)', burgerName, function (err, data) {
             if (err) throw err;
 
             callback(data);
         });
     },
     updateOne: function (burgerID, callback) {
+        console.log("Trying to update burger with id: " + burgerID);
         connection.query('UPDATE burgers SET devoured = 1 WHERE id = ?', burgerID, function(err, data) {
             console.log("Updating burger with id: " + burgerID);
             if (err) throw err;
