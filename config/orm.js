@@ -36,7 +36,7 @@ var orm = {
     },
     updateOne: function (burgerID, callback) {
         console.log("Trying to update burger with id: " + burgerID);
-        connection.query('UPDATE burgers SET devoured = 1 WHERE id = ?', burgerID, function(err, data) {
+        connection.query('UPDATE burgers SET devoured = 1 WHERE id = ?', [burgerID], function(err, data) {
             console.log("Updating burger with id: " + burgerID);
             if (err) throw err;
             

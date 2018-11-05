@@ -14,8 +14,8 @@
               <li class="">
                   <p class="">{{this.burgername}}</p>
                   <span class="input-group-btn">
-                      <form action="update/{{this.id}}?" method="POST">
-                        <button class="btn" type="submit" id="eatbtn">EAT!</button>
+                      <form action="burgers/update/{{id}}" method="PUT">
+                        <button data-id="{{id}}" class="btn eatbtn" type="submit">EAT!</button>
                       </form>
                   </span>
               </li>
@@ -51,3 +51,4 @@
         </form>
     </div>
 </div>
+<script href="/assets/js/script.js"></script>
